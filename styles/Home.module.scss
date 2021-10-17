@@ -1,3 +1,28 @@
+$background: #1b1b1b;
+
+@font-face { 
+  font-family: 'sf';
+  src: url('SF-Pro.dmg');
+}
+
+@font-face { 
+  font-family: 'Lexend';
+  src: url('LexendDeca-Regular.otf');
+}
+
+$font: 'sf';
+
+.gradient {
+  background-color: #12ffff;
+  background-image: linear-gradient(300.72deg, #2259E7 11.54%, rgba(250, 0, 240, 0.880208) 34.62%, rgba(178, 93, 207, 0.967428) 64.63%, #104ADF 78.95%, #1AFF83 100.19%);
+  /* linear-gradient(90.01deg, #66a3ff 0.01%, #12FFFF 99.99%) */
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -6,6 +31,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: $background;
 }
 
 .main {
@@ -33,9 +59,14 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.text {
+
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+
 }
 
 .title a:hover,
@@ -45,9 +76,11 @@
 }
 
 .title {
-  margin: 0;
+  color: white;
+  margin: 20%;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 2rem;
+  position: absolute;
 }
 
 .title,
