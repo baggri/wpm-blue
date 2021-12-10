@@ -4,25 +4,29 @@ import styles from "../styles/Home.module.scss";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  let text = "abcdef ability able about above accept according account across act";
+  let text = "a ability able";
+  let [currentKeyIndex, setCurrentKeyIndex] = useState(0);
 
-  const [currentKeyIndex, setCurrentKeyIndex] = useState(0);
+    const callFunction = (event) => {
+      console.log(event.key, text[currentKeyIndex]);
+
+      if (event.key === text[currentKeyIndex]) {
+        setCurrentKeyIndex((currentKeyIndex) => currentKeyIndex + 1);
+        console.log("based " + event.key + " " + currentKeyIndex);
+      }
+    };
+  
+  if (text[currentKeyIndex] == text[text.length]) {
+    console.log('we finished !!')
+  }
 
   useEffect(() => {
-    window.addEventListener("keypress", (event) => {
-      
-      if (event.key == text[currentKeyIndex]) {
-        setCurrentKeyIndex(currentKeyIndex + 1);
-        console.log("based " + event.key + " " + currentKeyIndex);
-
-      } else {
-        console.log("brah " + event.key + " " + currentKeyIndex);
-      }
-
-      return currentKeyIndex;
-    });
+    window.addEventListener("keypress", callFunction);
+    return () => {
+      // unregister eventListener
+      window.removeEventListener("keypress", callFunction);
+    };
   }, [currentKeyIndex]);
-
  
   return (
     <div className={styles.container}>

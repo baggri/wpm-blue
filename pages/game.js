@@ -1,6 +1,6 @@
-import styles from '../styles/game.scss'
+import styles from '../styles/Home.module.scss'
 
-function Game() {
+export default function Home() {
     
     const text = 'The quick brown fox jumped over the lazy dog.';
 
@@ -15,5 +15,3 @@ function Game() {
     </div>
     )
   }
-  
-  export default Game
